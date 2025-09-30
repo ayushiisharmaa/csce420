@@ -1,0 +1,41 @@
+move 0
+BCD
+A
+E
+>>>>>>>>>>
+move 1
+BCD
+
+EA
+>>>>>>>>>>
+move 2
+BC
+D
+EA
+>>>>>>>>>>
+move 3
+B
+DC
+EA
+>>>>>>>>>>
+move 4
+BA
+DC
+E
+>>>>>>>>>>
+move 5
+BA
+DCE
+
+>>>>>>>>>>
+move 6
+B
+DCE
+A
+>>>>>>>>>>
+move 7
+
+DCE
+AB
+>>>>>>>>>>
+statistics: probs/probA07.bwp method Astar planlen 7 iters 16 maxq 32

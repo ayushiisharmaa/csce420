@@ -1,0 +1,29 @@
+move 0
+DEHIJ
+G
+B
+AC
+F
+>>>>>>>>>>
+move 1
+DEHIJ
+GB
+
+AC
+F
+>>>>>>>>>>
+move 2
+DEHIJ
+GB
+C
+A
+F
+>>>>>>>>>>
+move 3
+DEHIJF
+GB
+C
+A
+
+>>>>>>>>>>
+statistics: probs/probB03.bwp method Astar planlen 3 iters 4 maxq 46

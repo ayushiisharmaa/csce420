@@ -1,0 +1,57 @@
+move 0
+CIJ
+DEH
+FG
+AB
+
+>>>>>>>>>>
+move 1
+CIJ
+DEH
+FGB
+A
+
+>>>>>>>>>>
+move 2
+CIJA
+DEH
+FGB
+
+
+>>>>>>>>>>
+move 3
+CIJA
+DE
+FGB
+H
+
+>>>>>>>>>>
+move 4
+CIJA
+D
+FGB
+HE
+
+>>>>>>>>>>
+move 5
+CIJA
+
+FGB
+HE
+D
+>>>>>>>>>>
+move 6
+CIJ
+
+FGB
+HE
+DA
+>>>>>>>>>>
+move 7
+CIJ
+E
+FGB
+H
+DA
+>>>>>>>>>>
+statistics: probs/probB07.bwp method Astar planlen 7 iters 24 maxq 238

@@ -1,0 +1,61 @@
+move 0
+ABCDE
+
+
+>>>>>>>>>>
+move 1
+ABCD
+E
+
+>>>>>>>>>>
+move 2
+ABC
+ED
+
+>>>>>>>>>>
+move 3
+AB
+EDC
+
+>>>>>>>>>>
+move 4
+A
+EDC
+B
+>>>>>>>>>>
+move 5
+AC
+ED
+B
+>>>>>>>>>>
+move 6
+AC
+E
+BD
+>>>>>>>>>>
+move 7
+A
+E
+BDC
+>>>>>>>>>>
+move 8
+A
+
+BDCE
+>>>>>>>>>>
+move 9
+
+A
+BDCE
+>>>>>>>>>>
+move 10
+E
+A
+BDC
+>>>>>>>>>>
+move 11
+E
+AC
+BD
+>>>>>>>>>>
+statistics: probs/probA11.bwp method Astar planlen 11 iters 201 maxq 292

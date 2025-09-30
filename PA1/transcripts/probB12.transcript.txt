@@ -1,0 +1,71 @@
+move 0
+DIJ
+BC
+EG
+H
+AF
+>>>>>>>>>>
+move 1
+DIJ
+BC
+E
+HG
+AF
+>>>>>>>>>>
+move 2
+DIJ
+BC
+EF
+HG
+A
+>>>>>>>>>>
+move 3
+DIJ
+B
+EF
+HG
+AC
+>>>>>>>>>>
+move 4
+DIJ
+B
+EFG
+H
+AC
+>>>>>>>>>>
+move 5
+DI
+B
+EFGJ
+H
+AC
+>>>>>>>>>>
+move 6
+DI
+B
+EFGJ
+
+ACH
+>>>>>>>>>>
+move 7
+D
+B
+EFGJ
+I
+ACH
+>>>>>>>>>>
+move 8
+D
+
+EFGJ
+IB
+ACH
+>>>>>>>>>>
+move 9
+
+D
+EFGJ
+IB
+ACH
+>>>>>>>>>>
+statistics: probs/probB12.bwp method Astar planlen 9 iters 21 maxq 269

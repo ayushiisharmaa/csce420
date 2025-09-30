@@ -1,0 +1,21 @@
+move 0
+CE
+AD
+B
+>>>>>>>>>>
+move 1
+CE
+ADB
+
+>>>>>>>>>>
+move 2
+C
+ADB
+E
+>>>>>>>>>>
+move 3
+
+ADBC
+E
+>>>>>>>>>>
+statistics: probs/probA03.bwp method Astar planlen 3 iters 4 maxq 10

@@ -1,0 +1,113 @@
+move 0
+BCJ
+FH
+ADEI
+G
+
+>>>>>>>>>>
+move 1
+BCJ
+F
+ADEI
+GH
+
+>>>>>>>>>>
+move 2
+BC
+F
+ADEI
+GHJ
+
+>>>>>>>>>>
+move 3
+BC
+
+ADEI
+GHJF
+
+>>>>>>>>>>
+move 4
+B
+C
+ADEI
+GHJF
+
+>>>>>>>>>>
+move 5
+B
+C
+ADE
+GHJFI
+
+>>>>>>>>>>
+move 6
+B
+CE
+AD
+GHJFI
+
+>>>>>>>>>>
+move 7
+B
+CE
+A
+GHJFI
+D
+>>>>>>>>>>
+move 8
+
+CE
+A
+GHJFI
+DB
+>>>>>>>>>>
+move 9
+A
+CE
+
+GHJFI
+DB
+>>>>>>>>>>
+move 10
+AI
+CE
+
+GHJF
+DB
+>>>>>>>>>>
+move 11
+AI
+CE
+F
+GHJ
+DB
+>>>>>>>>>>
+move 12
+AIJ
+CE
+F
+GH
+DB
+>>>>>>>>>>
+move 13
+AIJ
+CE
+F
+G
+DBH
+>>>>>>>>>>
+move 14
+AIJ
+CE
+FG
+
+DBH
+>>>>>>>>>>
+move 15
+AIJ
+CE
+FGH
+
+DB
+>>>>>>>>>>
+statistics: probs/probB20.bwp method Astar planlen 15 iters 11933 maxq 64874

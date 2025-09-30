@@ -1,0 +1,171 @@
+PA1 RESULTS — Blocksworld (A*)
+
+Default MAX_ITERS: 1,000,000
+
+1. Heuristic Definitions:
+
+H0 (BFS simulation):
+- Definition: h(n) = 0 for all states (so f = g).
+- Purpose: baseline to verify correctness
+
+H1 (Bottom-Prefix Mismatch Count):
+- My idea: For each stack, count the longest correct bottom prefix that matches the goal’s bottom segment on the same stack.  
+  Let TOTAL = total number of blocks
+  Let CORRECT = sum of these prefix lengths
+  h1(n) = TOTAL − CORRECT
+- Intuition: Any block not in a correct bottom prefix must eventually move at least once.
+- Also admissible under unit cost moves.
+
+H2 (Wrong-Stack or Wrong-Support): Used as “best heuristic” in the table below
+- Idea: For each block:
+  +1 if it is on the wrong stack (compared to goal) OR  
+  +1 if it is on the right stack but any block below it breaks the goal’s bottom prefix.  
+  Sum across all blocks.
+- Intuition: Blocks on wrong stacks must move. Blocks on the right stack but sitting on an incorrect foundation will also require future moves.
+- Also admissible under unit cost moves, this is an underestimate and empirically stronger than H1.
+
+
+2. Worked Examples of h(n)
+
+Example A:
+Problem file: probA03.bwp
+
+Initial:
+Stack1: CE
+Stack2: AD
+Stack3: B
+
+Goal:
+Stack1: (empty)
+Stack2: ADBC
+Stack3: E
+
+TOTAL blocks = 5 (A, B, C, D, E)
+
+Computed values:
+H0: always 0
+    - H0 = 0
+H1 (bottom-prefix count):
+    - Stack1 initial = CE, goal = (empty) → prefix match length = 0
+    - Stack2 initial = AD, goal = ADBC → bottom two blocks (A,D) match → prefix length = 2
+    - Stack3 initial = B, goal = E → mismatch immediately → prefix length = 0
+CORRECT = 2
+H1 = 5 – 2 = 3
+
+H2 (wrong-stack / wrong-support)
+    - C (stack1) → should be stack2 → wrong stack → +1
+    - E (stack1) → should be stack3 → wrong stack → +1
+    - A (stack2 depth0) → correct place → 0
+    - D (stack2 depth1) → correct place → 0
+    - B (stack3) → should be stack2 → wrong stack → +1
+Total H2 = 3
+
+Final values for example A:
+H0 = 0
+H1 = 3 (2 out of 5 blocks in correct prefixes)
+H2 = 3 (C, E, B misplaced)
+
+Example B
+Problem file: probB03.bwp
+
+Initial:
+Stack1: DEHIJ
+Stack2: G
+Stack3: B
+Stack4: AC
+Stack5: F
+
+Goal:
+Stack1: DEHIJF
+Stack2: GB
+Stack3: C
+Stack4: A
+Stack5: (empty)
+
+TOTAL blocks = 10 (A–J)
+
+Computed values:
+H0: always 0 
+    - H0 = 0
+H1 (bottom-prefix count):
+    - Stack1 init = DEHIJ, goal = DEHIJF → DEHIJ matches bottom 5, prefix length = 5
+    - Stack2 init = G, goal = GB → only G matches at bottom, prefix length = 1
+    - Stack3 init = B, goal = C → mismatch → 0
+    - Stack4 init = AC, goal = A → only bottom A matches, prefix length = 1
+    - Stack5 init = F, goal = empty → mismatch → 0
+CORRECT = 5 + 1 + 0 + 1 + 0 = 7
+H1 = 10 – 7 = 3
+
+H2 (wrong-stack / wrong-support):
+Stack1:
+    - D, E, H, I, J all correct stack/positions → 0
+Stack2:
+    - G is correct (bottom of stack2) → 0
+Stack3:
+    - B should be in stack2 → wrong stack → +1
+Stack4:
+    - A (bottom) is correct (goal stack4 bottom = A) → 0
+    - C (above A) → in goal, C should be bottom of stack3 → wrong stack → +1
+Stack5:
+    - F should be in stack1 → wrong stack → +1
+Total H2 = 3
+
+Final values for example B:
+H0 = 0
+H1 = 3 (7 out of 10 blocks in correct prefixes)
+H2 = 3 (B, C, F misplaced)
+
+
+3. Performance Summary (Best Heuristic = H2)
+
+- planlen: solution length (in moves) or FAILED if hit MAX_ITERS
+- iters: number of main loop iterations
+- maxq: maximum frontier size
+
+Output for all problem instances:
+probA03 - statistics: probs/probA03.bwp method Astar planlen 3 iters 4 maxq 10
+probA04 - statistics: probs/probA04.bwp method Astar planlen 4 iters 6 maxq 12
+probA05 - statistics: probs/probA05.bwp method Astar planlen 5 iters 7 maxq 17
+probA06 - statistics: probs/probA06.bwp method Astar planlen 6 iters 13 maxq 27
+probA07 - statistics: probs/probA07.bwp method Astar planlen 7 iters 16 maxq 32
+probA08 - statistics: probs/probA08.bwp method Astar planlen 8 iters 24 maxq 49
+probA09 - statistics: probs/probA09.bwp method Astar planlen 9 iters 106 maxq 141
+probA10 - statistics: probs/probA10.bwp method Astar planlen 10 iters 203 maxq 223
+probA11 - statistics: probs/probA11.bwp method Astar planlen 11 iters 201 maxq 292
+
+probB03 - statistics: probs/probB03.bwp method Astar planlen 3 iters 4 maxq 46
+probB04 - statistics: probs/probB04.bwp method Astar planlen 4 iters 5 maxq 65
+probB05 - statistics: probs/probB05.bwp method Astar planlen 5 iters 6 maxq 75
+probB06 - statistics: probs/probB06.bwp method Astar planlen 6 iters 7 maxq 70
+probB07 - statistics: probs/probB07.bwp method Astar planlen 7 iters 24 maxq 238
+probB08 - statistics: probs/probB08.bwp method Astar planlen 8 iters 38 maxq 322
+probB09 - statistics: probs/probB09.bwp method Astar planlen 8 iters 28 maxq 249
+probB10 - statistics: probs/probB10.bwp method Astar planlen 9 iters 36 maxq 353
+probB11 - statistics: probs/probB11.bwp method Astar planlen 9 iters 56 maxq 519
+probB12 - statistics: probs/probB12.bwp method Astar planlen 9 iters 21 maxq 269
+probB13 - statistics: probs/probB13.bwp method Astar planlen 13 iters 3109 maxq 19308
+probB14 - statistics: probs/probB14.bwp method Astar planlen 13 iters 2296 maxq 15638
+probB15 - statistics: probs/probB15.bwp method Astar planlen 14 iters 3360 maxq 23007
+probB16 - statistics: probs/probB16.bwp method Astar planlen 15 iters 10733 maxq 55713
+probB17 - statistics: probs/probB17.bwp method Astar planlen 16 iters 115708 maxq 528476
+probB18 - statistics: probs/probB18.bwp method Astar planlen 12 iters 32 maxq 329
+probB19 - statistics: probs/probB19.bwp method Astar planlen 14 iters 1399 maxq 7574
+probB20 - statistics: probs/probB20.bwp method Astar planlen 15 iters 11933 maxq 64874     
+
+Run command (used for the values derived in the table above):
+`python3 blocksworld.py tests/<file> -H H2 --trace -MAX_ITERS 1000000`
+
+Notes:
+- If an instance exceeds MAX_ITERS, show `planlen = FAILED`, but still include `iters` and `maxq`.
+- Assuming small variations in `iters`/`maxq` between implementations are expected
+
+
+4. Saved Transcripts for Example Problems in /PA1/transcripts folder
+
+- transcripts/probA03.transcript.txt  
+- transcripts/probA07.transcript.txt  
+- transcripts/probA11.transcript.txt  
+- transcripts/probB03.transcript.txt    
+- transcripts/probB07.transcript.txt
+- transcripts/probB12.transcript.txt
+- transcripts/probB20.transcript.txt
