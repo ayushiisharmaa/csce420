@@ -1,5 +1,5 @@
 
-# csce420-fall24: PA1: Blocksworld (A* GraphSearch)
+# PA1: Blocksworld (A* GraphSearch)
 
 ## Summary
 This program solves Blocksworld problems using A* search with different, selectable heuristics.  
