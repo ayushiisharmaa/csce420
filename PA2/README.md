@@ -30,11 +30,11 @@ Files included:
     - This will automatically run the solver on all CNF files, apply the required forced literal tests, and generate all transcript files. You can also clean transcripts with: `make clean`
 
     Transcript files produced:
-        1. `transcript.mapcolor.txt`
-        2. `transcript.mapcolor2.txt`
-        3. `transcript.6queens.A.txt`
-        4. `transcript.6queens.B.txt`
-        5. `transcript.wumpus.txt`
+        1. transcript.mapcolor.txt
+        2. transcript.mapcolor2.txt
+        3. transcript.6queens.A.txt
+        4. transcript.6queens.B.txt
+        5. transcript.wumpus.txt
 
 ---
 
