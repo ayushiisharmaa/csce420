@@ -39,9 +39,9 @@ Files included:
 ---
 
 # Example commands:
-  `python3 DPLL.py mapcolor.cnf`
-  `python3 DPLL.py 6queens.cnf -Q36`
-  `python3 DPLL.py wumpus.cnf -B12 -S12 B21 -S21`
+  - `python3 DPLL.py mapcolor.cnf`
+  - `python3 DPLL.py 6queens.cnf -Q36`
+  - `python3 DPLL.py wumpus.cnf -B12 -S12 B21 -S21`
 
 ---
 
