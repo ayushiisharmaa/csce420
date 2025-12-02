@@ -1,0 +1,47 @@
+# wumpus CNF
+# rules for percepts: breeze and stench
+# pits: P11, P22, P31
+# wumpus: W11, W22, W31
+# safeXY = (no pit and no wumpus at XY) for a few squares
+
+
+# breeze rules
+-B12 P11 P22
+
+-P11 B12
+-P22 B12
+
+-B21 P11 P22 P31
+
+-P11 B21
+-P22 B21
+-P31 B21
+
+# stench rules
+-S12 W11 W22
+
+-W11 S12
+-W22 S12
+
+-S21 W11 W31
+
+-W11 S21
+-W31 S21
+
+
+# safe square rules
+
+-safe12 -P12
+-safe12 -W12
+P12 safe12
+W12 safe12
+
+-safe21 -P21
+-safe21 -W21
+P21 safe21
+W21 safe21
+
+-safe22 -P22
+-safe22 -W22
+P22 safe22
+W22 safe22

@@ -1,0 +1,90 @@
+# australia map coloring cnf
+# each region should have exactly one color from R, G, B
+# adjacent places cannot share a color
+
+# at least one color per region
+WAR WAG WAB
+NTR NTG NTB
+SAR SAG SAB
+QR QG QB
+NSWR NSWG NSWB
+VR VG VB
+TR TG TB
+
+# at most one color per region
+# WA
+-WAR -WAG
+-WAR -WAB
+-WAG -WAB
+
+# NT
+-NTR -NTG
+-NTR -NTB
+-NTG -NTB
+
+# SA
+-SAR -SAG
+-SAR -SAB
+-SAG -SAB
+
+# Q
+-QR -QG
+-QR -QB
+-QG -QB
+
+# NSW
+-NSWR -NSWG
+-NSWR -NSWB
+-NSWG -NSWB
+
+# V
+-VR -VG
+-VR -VB
+-VG -VB
+
+# T
+-TR -TG
+-TR -TB
+-TG -TB
+
+# adjacency constraints
+# WA adjacent to NT and SA
+-WAR -NTR
+-WAG -NTG
+-WAB -NTB
+
+-WAR -SAR
+-WAG -SAG
+-WAB -SAB
+
+# NT adjacent to SA and Q
+-NTR -SAR
+-NTG -SAG
+-NTB -SAB
+
+-NTR -QR
+-NTG -QG
+-NTB -QB
+
+# SA adjacent to Q, NSW, and V
+-SAR -QR
+-SAG -QG
+-SAB -QB
+
+-SAR -NSWR
+-SAG -NSWG
+-SAB -NSWB
+
+-SAR -VR
+-SAG -VG
+-SAB -VB
+
+# Q adjacent to NSW
+-QR -NSWR
+-QG -NSWG
+-QB -NSWB
+
+# NSW adjacent to V
+-NSWR -VR
+-NSWG -VG
+-NSWB -VB

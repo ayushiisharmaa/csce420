@@ -1,0 +1,29 @@
+Testing mapcolor.cnf:
+Command 1: python3 DPLL.py mapcolor.cnf
+SAT. DPLL calls: 22
+Model includes assignments such as NSWG = -1, NTB = 1, so on and so forth
+Full model shown in corresponding transcript file: transcript.mapcolor.txt
+
+Command 2: python3 DPLL.py mapcolor.cnf SAB
+SAT. DPLL calls: 22
+Model consistent, forcing SAB still kept same call count.
+Full model shown in corresponding transcript file: transcript.mapcolor2.txt
+
+Testing 6queens.cnf:
+Command 1: python3 DPLL.py 6queens.cnf
+SAT. DPLL calls: 150
+Six queens placed: (1,2), (2,4), (3,6), (4,1), (5,3), (6,5)
+Full model shown in corresponding transcript file: transcript.6queens.A.txt
+
+Command 2: python3 DPLL.py 6queens.cnf -Q36
+SAT. DPLL calls: 247
+Different queen placement from first command's model
+Full model shown in corresponding transcript file: transcript.6queens.B.txt
+
+Testing wumpus.cnf
+Command: python3 DPLL.py wumpus.cnf -B12 -S12 B21 -S21
+SAT. DPLL calls: 18
+Inferred: safe22 = 1 (no pit or wumpus in (2,2)).
+Model satisfies all percept constraints. The KB correctly infers safe22 = 1 (square (2,2) is safe), since both P22 and W22 are false in the model.
+Full model shown in corresponding transcript file: transcript.wumpus.txt
+

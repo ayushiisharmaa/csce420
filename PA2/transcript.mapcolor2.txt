@@ -1,0 +1,25 @@
+solution:
+
+NSWB: -1
+NSWG: 1
+NSWR: -1
+NTB: -1
+NTG: 1
+NTR: -1
+QB: -1
+QG: -1
+QR: 1
+SAB: 1
+SAG: -1
+SAR: -1
+TB: 1
+TG: -1
+TR: -1
+VB: -1
+VG: -1
+VR: 1
+WAB: -1
+WAG: -1
+WAR: 1
+
+total DPLL calls: 22
