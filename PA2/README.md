@@ -28,14 +28,13 @@ Files included:
   1. `python3 DPLL.py <cnf_file> <optional unit literals>`
   2. `make`
     - This will automatically run the solver on all CNF files, apply the required forced literal tests, and generate all transcript files.
+    - You can also clean transcripts with: `make clean`
     - Transcript files produced:
         - `transcript.mapcolor.txt`
         - `transcript.mapcolor2.txt`
         - `transcript.6queens.A.txt`
         - `transcript.6queens.B.txt`
         - `transcript.wumpus.txt`
-    - You can also clean transcripts with: `make clean`
-
 
 ---
 
