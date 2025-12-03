@@ -4,7 +4,7 @@ This program implements the DPLL algorithm described in class. It recursively si
 
 ---
 
-Files included:
+# Files included:
 1. **dpll.py**: My full DPLL SAT solver implementation
     - Parses CNF files  
     - Applies unit propagation
