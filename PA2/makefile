@@ -1,32 +1,40 @@
-# Makefile for PA2 DPLL Solver (Python)
+# Makefile for PA2 - DPLL 
 
 PYTHON = python3
 SCRIPT = DPLL.py
 
-# this runs the solver by default on all CNF files automatically
-# 'make' produces all the transcripts.
-
+# run all tests and show output in console
 all: test_mapcolor test_6queens test_wumpus
-	@echo "All tests completed."
+	@echo "All tests completed"
 
-# run mapcolor.cnf
+# mapcolor tests
 test_mapcolor:
-	$(PYTHON) $(SCRIPT) mapcolor.cnf > transcript.mapcolor.txt
-	$(PYTHON) $(SCRIPT) mapcolor.cnf SAB > transcript.mapcolor2.txt
-	@echo "MapColor tests done."
+	@echo " Running mapcolor test 1"
+	$(PYTHON) $(SCRIPT) cnf_files/mapcolor.cnf
+	@echo ""
+	@echo " Running mapcolor test 2 (force SAB)"
+	$(PYTHON) $(SCRIPT) cnf_files/mapcolor.cnf SAB
+	@echo "Mapcolor tests done"
+	@echo ""
 
-# run 6queens.cnf
+# 6Queens tests
 test_6queens:
-	$(PYTHON) $(SCRIPT) 6queens.cnf > transcript.6queens.A.txt
-	$(PYTHON) $(SCRIPT) 6queens.cnf -Q36 > transcript.6queens.B.txt
-	@echo "6Queens tests done."
+	@echo " Running 6-Queens test 1"
+	$(PYTHON) $(SCRIPT) cnf_files/6queens.cnf
+	@echo ""
+	@echo " Running 6-Queens Test 2 (force -Q36)"
+	$(PYTHON) $(SCRIPT) cnf_files/6queens.cnf -Q36
+	@echo "6-Queens tests done"
+	@echo ""
 
-# run wumpus.cnf
+# Wumpus tests
 test_wumpus:
-	$(PYTHON) $(SCRIPT) wumpus.cnf -B12 -S12 B21 -S21 > transcript.wumpus.txt
-	@echo "Wumpus test done."
+	@echo " Running wumpus test"
+	$(PYTHON) $(SCRIPT) cnf_files/wumpus.cnf -B12 -S12 B21 -S21
+	@echo "Wumpus test done"
+	@echo ""
 
-# to clean transcripts
+# clean compiled Python cache
 clean:
-	rm -f transcript*.txt
-	@echo "Cleaned transcripts."
+	rm -rf __pycache__
+	@echo "Cleaned Python cache"
