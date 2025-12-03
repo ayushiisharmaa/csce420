@@ -26,10 +26,7 @@ Files included:
 
 # How to run:
   1. `python3 DPLL.py <cnf_file> <optional unit literals>`
-  2. `make`
-    - This will automatically run the solver on all CNF files and display the results in the terminal.
-    - It runs the MapColor, 6Queens, and Wumpus test cases exactly as required by the assignment.
-    - You can clean Python cache files using: `make clean`
+  2. `make`: This will automatically run the solver on all CNF files and display the results in the terminal. It runs the MapColor, 6Queens, and Wumpus test cases exactly as required by the assignment. You can clean Python cache files using: `make clean`
 
 ---
 
