@@ -1,7 +1,7 @@
 # Makefile for PA2 - DPLL 
 
 PYTHON = python3
-SCRIPT = DPLL.py
+SCRIPT = dpll.py
 
 # run all tests and show output in console
 all: test_mapcolor test_6queens test_wumpus
